@@ -11,14 +11,9 @@ import { User } from '../_types/User';
 export class NavComponent implements OnInit {
   model: any = {};
 
-  // this messy syntax is because it has to be initlized with something so we use the exjs 'of' so intialize it with null which for some reason is okay
-  currentUser$: Observable<User | null> = of(null);
+  constructor(public accountService: AccountService) {}
 
-  constructor(private accountService: AccountService) {}
-
-  ngOnInit(): void {
-    this.currentUser$ = this.accountService.currentUser$;
-  }
+  ngOnInit(): void {}
 
   login() {
     this.accountService.login(this.model).subscribe({
