@@ -22,11 +22,17 @@ export class HomeComponent implements OnInit {
     this.registerMode = !this.registerMode;
   }
 
+  environment = {
+    production: false,
+    apiUrl: 'https://localhost:5001/api',
+  };
+
   getUsers() {
-    this.http.get(environment.apiUrl + '/users').subscribe({
+    this.http.get('https://localhost:5001/api' + '/users').subscribe({
       next: (response: any) => (this.users = response),
       error: (error: any) => console.log(error),
       complete: () => console.log('Request is complete'),
     });
+    console.log(this.users);
   }
 }
