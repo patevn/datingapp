@@ -9,7 +9,7 @@ import { User } from '../_types/User';
   styleUrls: ['./home.component.css'],
 })
 export class HomeComponent implements OnInit {
-  registerMode = false;
+  registerMode: Boolean = false;
   users: User | undefined;
 
   constructor(private http: HttpClient) {}
@@ -33,6 +33,9 @@ export class HomeComponent implements OnInit {
       error: (error: any) => console.log(error),
       complete: () => console.log('Request is complete'),
     });
-    console.log(this.users);
+  }
+
+  cancelRegisterMode(event: Boolean) {
+    this.registerMode = event;
   }
 }
