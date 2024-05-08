@@ -27,6 +27,16 @@ export class AccountService {
     );
   }
 
+  register(model: any) {
+    return this.http.post<User>(this.baseUrl + 'account/register', model).pipe(
+      map((user) => {
+        if (user) {
+          localStorage.setItem('user', JSON.stringify(user));
+          this.currentUserSource.next(user);
+        }
+      })
+    );
+  }
   // this will be used from the component to set the user info in this service
   setCurrentUser(user: User) {
     this.currentUserSource.next(user);
