@@ -17,7 +17,7 @@ import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [AppComponent, NavComponent, HomeComponent, RegisterComponent, MemberListComponent, MemberDetailComponent, ListsComponent, MessagesComponent],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule, BrowserAnimationsModule, FormsModule, BsDropdownModule.forRoot(), ToastrModule.forRoot()],
+  imports: [BrowserModule, AppRoutingModule, HttpClientModule, BrowserAnimationsModule, FormsModule, BsDropdownModule.forRoot(), ToastrModule.forRoot({ positionClass: 'toast-bottom-right' })],
   providers: [],
   bootstrap: [AppComponent],
 })
